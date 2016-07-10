@@ -1,0 +1,27 @@
+<!--  list all of this user's birds
+...make each one clickable, goes to details page for that bird
+...make into html table eventually, or "cards"
+-->
+<ul>
+    {{#each birds}}
+        <li>
+            <p>{{this.name}}</p>
+            <img src="{{this.image_url}}">
+            <br><p>{{this.location}}</p>
+        </li>
+    {{/each}}
+</ul>
+ <!-- form for adding a new bird -->
+<form class="" action="/home" method="post">
+
+<label for="name">name</label>
+<input type="text" id="name" name="name">
+
+<label for='image'>image url</label>
+<input type="url" name="image">
+
+<label for="location">location</label>
+<input type="text" id="location" name="location">
+
+<button type="submit" name="button">submit</button>
+</form>

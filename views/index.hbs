@@ -1,7 +1,13 @@
 <h1>My Birds</h1>
 <h3>Select username</h3>
 
-<form action="" method="post">
-  <select>
-    <option >--------</option>
-    
+<!--
+   <select>
+    <option ></option> -->
+    <ul>
+    {{#each username}}
+    <a href="/userhome/{{this.id}}"><li>{{this.username}}</li></a>
+    {{/each}}
+  </ul>
+<p>or...</p>
+  <a href='/adduser'>create new username</a>

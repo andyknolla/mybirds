@@ -8,7 +8,7 @@ module.exports = {
     connection: 'postgres://localhost/mybirds_db'
   },
   production: {
-    client: 'postgresql',
+    client: 'pg',
     connection: process.env.DATABASE_URL + '?ssl=true'
   }
 };
