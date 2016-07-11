@@ -1,0 +1,39 @@
+<a href="/">Home</a>
+<a href="/userhome/{{userId}}">Your list</a>
+<h3>{{bird.name}}</h3>
+<img class='detail-image' src='{{bird.image_url}}'>
+<p>location: {{bird.location}}</p>
+<p>description: {{bird.description}}</p>
+<!--  form for adding a comment  -->
+<h3>Comment on this bird</h3>
+<div class='container'>
+    <div class='row'>
+        <form class="col-s12" action="/addComment/{{userId}}/{{birdId}}" method="post">
+            <input type="hidden" name="bird_id" value="{{birdId}}">
+            <input type="hidden" name="user_id" value="{{userId}}">
+            <div class="input-field col-s4">
+                <label for="title">Comment title</label>
+                <input id="title" type="text" name="title">
+            </div>
+            <div class="input-field col-s4">
+                <label for='content'>Content</label>
+                <textarea id='content' name='content'></textarea>
+            </div>
+            <button type="submit">submit</button>
+        </form>
+    </div>
+</div>
+<h3>Comments</h3>
+{{#each comments}}
+    <div>
+        <h4>{{this.title}}</h4>
+        <p>{{this.created_at}}</p>
+        <p>{{this.content}}</p>
+    </div>
+{{/each}}
+<a href='/{{userId}}/delete/{{bird.id}}'>
+    <button type="button" name="button">Delete</button>
+</a>
+<a href='/edit/{{bird.id}}'>
+    <button type="button" name="button">Edit</button>
+</a>

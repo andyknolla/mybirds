@@ -2,26 +2,67 @@
 ...make each one clickable, goes to details page for that bird
 ...make into html table eventually, or "cards"
 -->
-<ul>
+<nav>
+    <div class="nav-wrapper green darken-1">
+        <a href="/" class="brand-logo">Home</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="/">home</a></li>
+            <li><a href="/userhome/profile">profile</a></li>
+        </ul>
+    </div>
+</nav>
+<h2>Welcome back, {{user.username}}</h2>
+<h3>Your bird list:</h3>
+<div class='container'>
+    <div class="row">
+        {{#each birds}}
+            <div class="card small col m3">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="{{this.image_url}}">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4 ">{{this.name}}<i class="material-icons right ">more_vert</i></span>
+                    <p><a href="/userhome/{{../id}}/detail/{{this.birdID}}">Details</a></p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4 ">Card Title<i class="material-icons right ">close</i></span>
+                    <p>location:{{this.location}}</p>
+                    <p><a href="/userhome/{{../id}}/detail/{{this.birdID}}">Details</a></p>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>
+<div class="divider"></div>
+<!-- <ul>
     {{#each birds}}
         <li>
-            <p>{{this.name}}</p>
-            <img src="{{this.image_url}}">
-            <br><p>{{this.location}}</p>
+            <p>Name: {{this.name}}</p>
+            <a href='/userhome/{{../id}}/detail/{{this.birdID}}'><img src=" {{this.image_url}} "></a>
+            <br>
+            <p>location: {{this.location}}</p>
         </li>
-    {{/each}}
+    {{/each}} -->
 </ul>
- <!-- form for adding a new bird -->
-<form class="" action="/home" method="post">
+<!-- form for adding a new bird -->
+<h4>Add a new bird to your list</h4>
+<div class='container'>
+    <div class='row'>
+        <form class='col-m6 offset-s6' action="/add/{{id}}" method="post">
 
-<label for="name">name</label>
-<input type="text" id="name" name="name">
-
-<label for='image'>image url</label>
-<input type="url" name="image">
-
-<label for="location">location</label>
-<input type="text" id="location" name="location">
-
-<button type="submit" name="button">submit</button>
-</form>
+            <label for="name">name</label>
+            <input type="text" id="name" name="name">
+            <br>
+            <label for='image'>image url</label>
+            <input type="url" name="image_url">
+            <br>
+            <label for="location">location</label>
+            <input type="text" id="location" name="location">
+            <br>
+            <label for="description">Description</label>
+            <textarea id="description" name="description"></textarea>
+            <input type="hidden" name="user_id" value="{{id}}">
+            <button type="submit" name="button">submit</button>
+        </form>
+    </div>
+</div>
