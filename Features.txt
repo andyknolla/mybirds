@@ -1,0 +1,19 @@
+Total bird count
+ - per year
+ - per month
+
+Auth
+ - login
+ - session
+ - authorization: users can look at other users' birds with whom they are friends
+
+Include date for sighting
+
+Quick-add feature: Go to another user's page, who has an entry for a sighting that you shared, click a button to add it to your page, along with editing of details.  //this should be just like editing a post, but the insert() will go into a different user's data.
+
+Additional sightings of the same bird
+ -
+**  - make bird/user a multiple to multiple join table...one entry per bird, one bird can be seen by many users, and users can see many birds.
+    - then, additional sightings by the same user of the same bird could be added.
+
+Graph showing

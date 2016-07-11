@@ -1,14 +1,24 @@
-<a href="/">Home</a>
-<a href="/userhome/{{userId}}">Your list</a>
+<nav>
+    <div class="nav-wrapper green darken-3">
+        <a href="/" class="brand-logo">Home</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="/userhome/{{userId}}">Your list<i class="large material-icons right small">view list</i></a></li>
+            <li><a href="/userhome/profile">profile<i class="large material-icons right">perm_identity</i></a></li>
+        </ul>
+    </div>
+</nav>
 <h3>{{bird.name}}</h3>
 <img class='detail-image' src='{{bird.image_url}}'>
 <p>location: {{bird.location}}</p>
 <p>description: {{bird.description}}</p>
+<a href='/{{userId}}/delete/{{bird.id}}' class="waves-effect waves-light btn btn-small red darken-4"><i class="material-icons left">delete</i>Delete</a>
+<a href='/edit/{{bird.id}}' class="waves-effect waves-light btn btn-small lime darken-3"><i class="material-icons left">mode edit</i>Edit</a>
 <!--  form for adding a comment  -->
-<h3>Comment on this bird</h3>
-<div class='container'>
-    <div class='row'>
-        <form class="col-s12" action="/addComment/{{userId}}/{{birdId}}" method="post">
+<a class="waves-effect waves-light btn modal-trigger" href="#modal1">Comment</a>
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <form id='addComment' action="/addComment/{{userId}}/{{birdId}}" method="post">
             <input type="hidden" name="bird_id" value="{{birdId}}">
             <input type="hidden" name="user_id" value="{{userId}}">
             <div class="input-field col-s4">
@@ -19,21 +29,25 @@
                 <label for='content'>Content</label>
                 <textarea id='content' name='content'></textarea>
             </div>
-            <button type="submit">submit</button>
         </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn waves-effect waves-light" form="addComment" type="submit">Submit<i class="material-icons right">send</i></button>
     </div>
 </div>
 <h3>Comments</h3>
-{{#each comments}}
-    <div>
-        <h4>{{this.title}}</h4>
-        <p>{{this.created_at}}</p>
-        <p>{{this.content}}</p>
-    </div>
-{{/each}}
-<a href='/{{userId}}/delete/{{bird.id}}'>
-    <button type="button" name="button">Delete</button>
-</a>
-<a href='/edit/{{bird.id}}'>
-    <button type="button" name="button">Edit</button>
-</a>
+<!-- <div class='container'> -->
+    {{#each comments}}
+        <div class='row'>
+            <div class='card col m4 blue-grey darken-1'>
+              <div class='card-content white-text'>
+                <h5>{{this.title}}</h5>
+                <p>Posted on: {{this.created_at}}</p>
+                <p>{{this.content}}</p>
+              </div>
+            </div>
+            <div class='row col-m9'>
+            </div>
+        </div>
+    {{/each}}
+<!-- </div> -->

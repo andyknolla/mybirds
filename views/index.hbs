@@ -1,5 +1,5 @@
 <nav>
-    <div class="nav-wrapper green darken-1">
+    <div class="nav-wrapper green darken-3">
       <a href="#" class="brand-logo">My Birds</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="sass.html">Sass</a></li>
@@ -8,16 +8,22 @@
       </ul>
     </div>
   </nav>
-
+<div class='container'>
 <h4>Sign in...</h4>
-<p>select username</p>
-<!--
-   <select>
-    <option ></option> -->
+<!-- <p>select username</p>
     <ul>
     {{#each username}}
     <a href="/userhome/{{this.id}}"><li>{{this.username}}</li></a>
     {{/each}}
+  </ul> -->
+  <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Members</a>
+
+  <!-- Dropdown Structure -->
+  <ul id='dropdown1' class='dropdown-content'>
+    {{#each username}}
+    <a href="/userhome/{{this.id}}"><li>{{this.username}}</li></a>
+    {{/each}}
   </ul>
-<p>or...</p>
-  <a href='/adduser'>create new username</a>
+  <p>or...</p>
+    <a href='/adduser' class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>Create a new user</a>
+  </div>

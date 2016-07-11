@@ -12,3 +12,6 @@ a {
 .detail-image {
   width: 400px;
 }
+.card .card-title {
+  font-size: 18px;
+}
