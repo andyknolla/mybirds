@@ -7,11 +7,15 @@ a {
   color: #00B7FF;
 }
 .card {
-  margin:10px;
+  margin:15px;
 }
 .detail-image {
   width: 400px;
 }
 .card .card-title {
   font-size: 18px;
+}
+
+.comment {
+  background-color:
 }

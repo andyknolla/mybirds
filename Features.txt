@@ -13,7 +13,10 @@ Quick-add feature: Go to another user's page, who has an entry for a sighting th
 
 Additional sightings of the same bird
  -
-**  - make bird/user a multiple to multiple join table...one entry per bird, one bird can be seen by many users, and users can see many birds.
+**  - make bird/user a multiple to multiple join table...one entry per bird, one bird can be seen by many users, and a user can see many birds.
     - then, additional sightings by the same user of the same bird could be added.
+
+location
+ - May want to add a table for location...by neighborhood, gps coordinates, town, park name?
 
 Graph showing
