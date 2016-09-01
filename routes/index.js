@@ -5,17 +5,14 @@ var knex = require('../db/knex');
 
 /* GET home page, where user selects their name  */
 router.get('/', function(req, res, next) {
-    knex('username').select(
-      'username.name',
-      'bird.name'
-    ).leftJoin('user_bird', 'username.id', '=', 'user_id')
-    .rightJoin('bird', 'bird.id', '=', 'bird_id')
-
-
+    knex('member').select(
+      'member.id',
+      'member.username'
+    )
     .then(function(data) {
         console.log(data)
         res.render('index', {
-            bird: data
+            member: data
         });
     })
 });
