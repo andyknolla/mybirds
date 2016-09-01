@@ -12,3 +12,8 @@ module.exports = {
     connection: process.env.DATABASE_URL + '?ssl=true'
   }
 };
+var obj = {
+  obj2: {
+
+  }
+}
