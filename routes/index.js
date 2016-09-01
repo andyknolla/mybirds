@@ -28,22 +28,25 @@ router.get('/userhome/:id', function(req, res, next) {
     console.log('userhome page route goes');
     knex('bird').select(
             'bird.id as birdID',
-            'username.id as userID',
-            'username.username',
-            'bird.name',
-            'bird.image_url',
-            'bird.location'
-        ).join('username', function() {
-            this.on('user_id', '=', 'username.id')
-        }).where('username.id', '=', req.params.id)
+            'bird.name as birdName',
+            'bird.description as birdDescription',
+            'sighting.description as sightingDescription',
+            'sighting.sighting_date',
+            'sighting.member_id as spotterID',
+            'member.username'
+        ).join('sighting', function() {
+          this.on('bird_id', '=', 'bird.id')
+        }).where('sighting.member_id', '=', req.params.id)
+        .join('member', function() {
+            this.on('member_id', '=', 'member.id')
+        }).where('member.id', '=', req.params.id)
         .then(function(data) {
             console.log(data, req.params.id, ' = bird/user join table data');
             res.render('userhome', {
-                user: data[0],
+                user: data[0].username,
                 birds: data,
                 id: req.params.id
             });
-            // console.log(birds, 'birds');
         }).catch(function(err) {
             console.log('error message', err);
         })

@@ -11,7 +11,7 @@
         </ul>
     </div>
 </nav>
-<h2>Welcome back, {{user.username}}</h2>
+<h2>Welcome back, {{user}}</h2>
 <h3>Your bird list:</h3>
 <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Add a bird!</a>
 <!-- <div class='container'> -->
@@ -22,11 +22,11 @@
                     <img class="activator" src="{{this.image_url}}">
                 </div>
                 <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4 ">{{this.name}}<i class="material-icons right ">more_vert</i></span>
+                    <span class="card-title activator grey-text text-darken-4 ">{{this.birdName}}<i class="material-icons right ">more_vert</i></span>
                     <!-- <p><a href="/userhome/{{../id}}/detail/{{this.birdID}}">Details</a></p> -->
                 </div>
                 <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4 ">{{this.name}}<i class="material-icons right ">close</i></span>
+                    <span class="card-title grey-text text-darken-4 ">{{this.birdName}}<i class="material-icons right ">close</i></span>
                     <p>location:{{this.location}}</p>
                     <p><a href="/userhome/{{../id}}/detail/{{this.birdID}}">Details</a></p>
                 </div>
